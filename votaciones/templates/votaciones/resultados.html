@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'votaciones/resultados.css' %}">
+</head>
+<body>
+<h1>
+    {{ pregunta.texto_pregunta }}
+</h1>
+<ul>
+    {% for respuesta in pregunta.respuesta_set.all %}
+        <li>
+            {{ respuesta.texto_respuesta }} -- {{ respuesta.votos }} voto{{ respuesta.votos|pluralize }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'votaciones:detail' pregunta.id %}">Votar de nuevo</a>
+<a href="{% url 'votaciones:index'%}">Regresar a la lista de pregunta</a>
+</body>
+</html>

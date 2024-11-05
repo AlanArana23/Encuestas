@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Encuesta</title>
+    <link rel="stylesheet" href="{% static 'votaciones/index.css' %}">
+</head>
+<body>
+    {% if lista_preguntas_recientes%}
+    <ul>
+        {% for pregunta in lista_preguntas_recientes%}
+        <li>
+            <a href="{% url 'votaciones:detail' pregunta.id %}">{{ pregunta.texto_pregunta }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+        {% else %}
+        <p>No hay votaciones disponibles.</p>
+    {% endif %}
+</body>
+</html>
