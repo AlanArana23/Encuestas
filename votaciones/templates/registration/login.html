@@ -8,8 +8,12 @@
         <h2>Encuesta para votaciones</h2>
         <form method="post">
             {% csrf_token %}
-
+            {form.as_p}
+            <button type="submit">Iniciar</button>
         </form>
+        {% if form.errors %}
+            <p> El usuario o la contraseña son incorrectos.</p>
+        {% endif %}
 
 </body>
 </html>
