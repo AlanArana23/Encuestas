@@ -20,7 +20,7 @@ from django.contrib.auth.decorators import login_required
 #     return render(request, "votaciones/index.html", context)
 
 
-class IndexView(generic.ListView, LoginRequiredMixin):
+class IndexView(LoginRequiredMixin,generic.ListView):
     template_name = "votaciones/index.html"
     context_object_name = "lista_preguntas_recientes"
 
@@ -37,7 +37,7 @@ class IndexView(generic.ListView, LoginRequiredMixin):
 #     return render(request,"votaciones/detalle.html", {"pregunta": pregunta})
 #     #return HttpResponse("Esta es la pregunta %s" % pregunta_id)
 
-class DetailView(generic.DetailView, LoginRequiredMixin):
+class DetailView(LoginRequiredMixin,generic.DetailView):
     model = Pregunta
     template_name = "votaciones/detalle.html"
 
@@ -47,7 +47,7 @@ class DetailView(generic.DetailView, LoginRequiredMixin):
 #     #respuesta = "Estas viendo las respuestas de la pregunta %s"
 #     #return HttpResponse(respuesta % pregunta_id)
 
-class ResultView(generic.DetailView, LoginRequiredMixin):
+class ResultView(LoginRequiredMixin,generic.DetailView):
     model = Pregunta
     template_name = "votaciones/resultados.html"
 
