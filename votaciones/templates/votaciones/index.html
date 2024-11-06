@@ -18,5 +18,13 @@
         {% else %}
         <p>No hay votaciones disponibles.</p>
     {% endif %}
+
+    <form action="{% url 'logout' %}", method="post">
+        {% csrf_token %}
+        <button type="submit" style="border:none; background:none; padding: 0; color: blue; cursor: pointer;">
+            Cerrar sesion
+        </button>
+
+    </form>
 </body>
 </html>

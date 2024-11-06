@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
-    <title>Iniciar sesion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'votaciones/login.css' %}">
+    <title>Iniciar Sesion</title>
 </head>
 <body>
-        <h2>Encuesta para votaciones</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-            <button type="submit">Iniciar</button>
-        </form>
-        {% if form.errors %}
-            <p> El usuario o la contraseña son incorrectos.</p>
-        {% endif %}
+    <h2>Encuestas para votaciones</h2>
+    <form method="post">
+
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">
+            Iniciar
+        </button>
+    </form>
+    {% if form.errors %}
+    <p>El usuario o la contraseña son incorrectas.</p>
+    {% endif %}
 
 </body>
 </html>
